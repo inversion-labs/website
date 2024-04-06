@@ -1,7 +1,3 @@
----
-
----
-
 <script>
   const ball = document.querySelector(".ball") as HTMLElement;
 
@@ -9,7 +5,7 @@
     let currentX = parseInt(ball.style.left || "0", 10);
     let currentY = parseInt(ball.style.top || "0", 10);
 
-    const speed = 0.075; // Adjust the speed of movement
+    const speed = 0.075;
 
     function animate() {
       const dx = (targetX - currentX) * speed;
