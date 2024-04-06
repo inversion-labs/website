@@ -1,16 +1,74 @@
 ---
-const {height} = Astro.props;
+const { height } = Astro.props;
 ---
 
+<script>
+  document.addEventListener("DOMContentLoaded", function (event) {
+    var dataText = [
+      "Business modules as first-class citizens.",
+      "Performant and Scalable Software Solutions.",
+      "Faster and Cheaper Go-to-Market.",
+      "Start with Proper Inversion of Control.",
+      "Welcome to Inversion"
+    ];
+
+    function typeWriter(text: string, i: number, fnCallback: () => void) {
+      if (i < text.length) {
+        document.querySelector("h1")!.innerHTML =
+          text.substring(0, i + 1) + '<span aria-hidden="true"></span>';
+
+        setTimeout(function () {
+          typeWriter(text, i + 1, fnCallback);
+        }, 50);
+      } else if (typeof fnCallback == "function") {
+        setTimeout(fnCallback, 700);
+      }
+    }
+    function StartTextAnimation(i: number) {
+      if (typeof dataText[i] == "undefined") {
+        setTimeout(function () {
+          StartTextAnimation(0);
+        }, 20000);
+      }
+      // check if dataText[i] exists
+      if (i < dataText[i].length) {
+        // text exists! start typewriter animation
+        typeWriter(dataText[i], 0, function () {
+          // after callback (and whole text has been animated), start next text
+          StartTextAnimation(i + 1);
+        });
+      }
+    }
+    // start the text animation
+    StartTextAnimation(0);
+  });
+</script>
+
 <div class="wrapper">
-    <h1>Inversion</h1>
+  <h1>Inversion.</h1>
 </div>
 
-<style define:vars={{height}}>
-    .wrapper {
-        height: var(--height);
-        display: flex;
-        justify-content: center;
-        align-items: center;
+<style define:vars={{ height }}>
+  .wrapper {
+    height: var(--height);
+    width: 80vw;
+    word-wrap: break-word;
+  }
+
+  h1 {
+    font-size: 5em;
+    color: white;
+    text-transform: uppercase;
+  }
+
+  span {
+    border-right: 0.05em solid;
+    animation: caret 1s steps(1) infinite;
+  }
+
+  @keyframes caret {
+    50% {
+      border-color: transparent;
     }
+  }
 </style>
