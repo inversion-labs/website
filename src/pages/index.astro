@@ -1,11 +1,13 @@
 ---
 import Logo from '../components/Logo.astro';
+import Mouse from '../components/Mouse.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Inversion">
 	<main>
 		<Logo height="100vh"/>
+		<Mouse/>	
 	</main>
 </Layout>
 
@@ -18,5 +20,6 @@ import Layout from '../layouts/Layout.astro';
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		height: 100vh;
 	}
 </style>
