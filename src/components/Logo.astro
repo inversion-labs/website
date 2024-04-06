@@ -1,0 +1,16 @@
+---
+const {height} = Astro.props;
+---
+
+<div class="wrapper">
+    <h1>Inversion</h1>
+</div>
+
+<style define:vars={{height}}>
+    .wrapper {
+        height: var(--height);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
