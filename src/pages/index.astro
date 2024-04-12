@@ -6,7 +6,9 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="Inversion">
 	<main>
-		<Logo height="100vh"/>
+		<div class="wrapper"> 
+			<Logo height="100vh"/>
+		</div>
 		<Mouse/>	
 	</main>
 </Layout>
@@ -15,7 +17,7 @@ import Layout from '../layouts/Layout.astro';
 	body {
 		margin: 0;
 	}
-	main {
+	.wrapper {
 		cursor: none;
 		color: white;
 		overflow: hidden;
